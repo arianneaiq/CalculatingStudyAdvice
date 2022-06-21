@@ -6,80 +6,140 @@ namespace CalculatingStudyAdvice
 {
     internal class StudyAdvice
     {
-        private int block;
-        private int block2;
-        private int block3;
-        private int block4;
+        private int calculate;
 
 
-        public void setBlock(int block)
+       
+       public Char CalculateAdvice(int block1)
         {
-            if (block >= 0 && block <= 15)
-            {
-                this.block = block;
-            }
-        }
-
-        public void setBlock2(int block2)
-        {
-            if (block2 >= 0 && block2 <= 15)
-            {
-                this.block2 = block2;
-            }
-        }
-
-        public int Calculate ()
-        {
-           int calculate = ((block + block2) / 30) * 100;
-            return calculate;
-
-        }
-
-
-        public char AdviceA()
-        {
-            if (Calculate() == 100)
+            calculate = (block1) * 100 / 15;
+            if (calculate == 100)
             {
                 return 'A';
             }
-
             else if (calculate >= 75)
             {
-                AdviceB();
+                return 'B';
             }
-
             else if (calculate >= 50)
             {
-                AdviceC();
+                return 'C';
             }
-
             else if (calculate < 50)
             {
-                AdviceD();
+                return 'D';
             }
-
-            
+            else
+            {
+                return 'O';
+            }
         }
 
-        public char AdviceB()
+        public Char CalculateAdvice(int block1, int block2)
         {
-            return 'B';
+            calculate = (block1 + block2) * 100 / 30;
+
+            if (calculate == 100)
+            {
+                return 'A';
+            }
+            else if (calculate >= 75)
+            {
+                return 'B';
+            }
+            else if (calculate >= 50)
+            {
+                return 'C';
+            }
+            else if (calculate < 50)
+            {
+                return 'D';
+            }
+            else
+            {
+                return 'O';
+            }
         }
 
-        public char AdviceC()
+        public Char CalculateAdvice(int block1, int block2, int block3)
         {
-            return 'C';
+            calculate = (block1 + block2 + block3) * 100 / 45;
+
+            if (calculate == 100)
+            {
+                return 'A';
+            }
+            else if (calculate >= 75)
+            {
+                return 'B';
+            }
+            else if (calculate >= 50)
+            {
+                return 'C';
+            }
+            else if (calculate < 50)
+            {
+                return 'D';
+            }
+            else
+            {
+                return 'O';
+            }
         }
 
-        public char AdviceD()
+        public Char CalculateAdvice(int block1, int block2, int block3, int block4)
         {
-            return 'D';
+            calculate = (block1 + block2 + block3 + block4) * 100 / 60;
+
+            if (calculate == 100)
+            {
+                return 'A';
+            }
+            else if (calculate >= 75)
+            {
+                return 'B';
+            }
+            else if (calculate >= 50)
+            {
+                return 'C';
+            }
+            else if (calculate < 50)
+            {
+                return 'D';
+            }
+            else
+            {
+                return 'O';
+            }
         }
 
-        public string getStudyAdvice()
+
+        public string NoAdvice()
         {
-            return $"YOur study advice is {Calculate()}";
+            return "No available advice";
         }
-       
+
+        public string GetAdviceInfo(int block)
+        {
+            return $"Your studyadvice is {CalculateAdvice(block)} base on block 1";
+        }
+
+        public string GetAdviceInfo(int block, int block2)
+        {
+            return $"Your studyadvice is {CalculateAdvice(block,block2)} base on block 1&2";
+        }
+        public string GetAdviceInfo(int block, int block2, int block3)
+        {
+            return $"Your studyadvice is {CalculateAdvice(block,block2, block3)} base on block 1,2&3";
+        }
+        public string GetAdviceInfo(int block, int block2, int block3, int block4)
+        {
+            return $"Your studyadvice is {CalculateAdvice(block,block2, block3,block4)} base on block 1,2,3&4";
+        }
+
+        
+
+
+
     }
 }
